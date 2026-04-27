@@ -1,10 +1,13 @@
 def polynomial_features(values, degree):
+    """
+    Generate polynomial features for each value up to the given degree.
+    """
     result = []
-    def one_deg(value):
-        value = [value**i for i in range(degree+1)]
-        return value
-
     for j in range(len(values)):
-        result.append(one_deg(values[j]))
+        l = []
+        for i in range(degree + 1):
+            l.append(values[j]**i)
+
+        result.append(l)
 
     return result
